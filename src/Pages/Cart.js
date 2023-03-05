@@ -1,10 +1,12 @@
 import React, { useContext, useEffect } from "react";
 import { ProductContext } from "../Context/Context";
 import "./Products.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
   const { products, setProducts, kart, setKart, kartPrice, setKartPrice } =
     useContext(ProductContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setKartPrice(0);
@@ -36,8 +38,22 @@ export default function Cart() {
                   product.numinkart > 0 && (
                     <div key={idx} className="kart-product">
                       <div className="kart-title-image">
-                        <img src={product.src} alt={product.title} />
-                        <h4>{product.title}</h4>
+                        <img
+                          src={product.src}
+                          alt={product.title}
+                          onClick={() => {
+                            navigate(`/product/${product.id}`);
+                          }}
+                          style={{ cursor: "pointer" }}
+                        />
+                        <h4
+                          style={{ cursor: "pointer" }}
+                          onClick={() => {
+                            navigate(`/product/${product.id}`);
+                          }}
+                        >
+                          {product.title}
+                        </h4>
                       </div>
 
                       <div className="change-buttons">

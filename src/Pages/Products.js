@@ -20,9 +20,17 @@ export default function Products() {
                 onClick={() => {
                   navigate(`/product/${product.id}`);
                 }}
+                style={{ cursor: "pointer" }}
               ></img>
 
-              <h3>{product.title}</h3>
+              <h3
+                onClick={() => {
+                  navigate(`/product/${product.id}`);
+                }}
+                style={{ cursor: "pointer" }}
+              >
+                {product.title}
+              </h3>
               <p>
                 {" "}
                 <b>{`${product.price} €`}</b>
