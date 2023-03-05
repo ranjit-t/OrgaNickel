@@ -49,7 +49,7 @@ export default function Product() {
       </button>
 
       <p
-        style={{ cursor: "pointer" }}
+        style={{ cursor: "pointer", marginTop: "50px" }}
         onClick={() => {
           navigate("/products");
         }}
