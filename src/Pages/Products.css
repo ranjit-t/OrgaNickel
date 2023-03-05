@@ -190,3 +190,12 @@ button:hover {
   box-shadow: 1px 1px 3px grey;
   cursor: pointer;
 }
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home-page > img:hover {
+  transform: scale(1);
+}
