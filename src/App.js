@@ -4,32 +4,65 @@ import Cart from "./Pages/Cart";
 import Home from "./Pages/Home";
 import Products from "./Pages/Products";
 import Hamburger from "hamburger-react";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { ProductContext } from "./Context/Context";
 
 function App() {
   const [isOpen, setOpen] = useState(false);
-
-  console.log(isOpen);
+  const { kart } = useContext(ProductContext);
+  const [itemsInKart, setItemsInKart] = useState(0);
+  useEffect(() => {
+    let x = kart.flat().map((product) => {
+      return parseInt(product.numinkart);
+    });
+    setItemsInKart(x.reduce((a, b) => a + b, 0));
+  }, [kart]);
 
   return (
     <div className="App">
       <div className="header">
         <h2 className="logo">OrgaNickel</h2>
-        <Hamburger toggled={isOpen} toggle={setOpen} />
+        <Hamburger
+          toggled={isOpen}
+          toggle={setOpen}
+          onClick={() => {
+            setOpen((prev) => !prev);
+          }}
+        />
 
         <div className={isOpen ? "nav-links open" : "nav-links"}>
-          <NavLink to="/" className="nav-bar">
+          <NavLink
+            to="/"
+            className="nav-bar"
+            onClick={() => {
+              setOpen((prev) => !prev);
+            }}
+          >
             Home
           </NavLink>
-          <NavLink to="/products" className="nav-bar">
+          <NavLink
+            to="/products"
+            className="nav-bar"
+            onClick={() => {
+              setOpen((prev) => !prev);
+            }}
+          >
             Products
           </NavLink>
-          <NavLink to="/cart" className="nav-bar">
-            <AiOutlineShoppingCart size="1.4em" />3
+          <NavLink
+            to="/cart"
+            className="nav-bar"
+            onClick={() => {
+              setOpen((prev) => !prev);
+            }}
+          >
+            <AiOutlineShoppingCart size="1.4em" />
+            {itemsInKart}
           </NavLink>
         </div>
       </div>
+      {/* <ProductContextProvider> */}
       <Routes className="routes">
         <Route className="route" path="/" element={<Home></Home>}></Route>
         <Route
@@ -39,6 +72,7 @@ function App() {
         ></Route>
         <Route className="route" path="/cart" element={<Cart></Cart>}></Route>
       </Routes>
+      {/* </ProductContextProvider> */}
     </div>
   );
 }
