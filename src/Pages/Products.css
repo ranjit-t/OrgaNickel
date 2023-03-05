@@ -40,14 +40,29 @@ img:hover {
   column-gap: 50px;
   margin-left: 100px;
   margin-right: 100px;
-  /* border: 1px solid grey; */
   margin-top: 10px;
   padding-top: 10px;
   box-shadow: 1px 1px 4px grey;
+  position: relative;
 }
 .kart-product:hover {
   background-color: #f2eac9;
   box-shadow: 1px 1px 6px grey;
+}
+
+.remove-product {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  background-color: #212517;
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 1px 1px 6px grey;
+  color: white;
+}
+.remove-product:hover {
+  box-shadow: 1px 1px 4px grey;
+  background-color: #374709;
 }
 
 .num-of-prods-in-kart {
@@ -81,9 +96,7 @@ img:hover {
   height: 100px;
   object-fit: cover;
 }
-.kart-title-image > h4 {
-  /* padding-left: 20px; */
-}
+
 .change-buttons {
   position: absolute;
   right: 45%;
@@ -161,21 +174,18 @@ img:hover {
 }
 
 button {
-  padding: 7px;
+  padding: 3px;
   background-color: #759242;
-  border: none;
+
   color: white;
-  transform: scale(1.2);
+  transform: scale(1.1);
   font-family: "Armata", sans-serif;
-  border-radius: 10px;
-  box-shadow: 2px 2px 5px grey;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px grey;
+  border: 1px solid #759242;
 }
 button:hover {
-  background-color: #374709;
-  /* border: 1px solid #759242; */
-  color: white;
-  transform: scale(1.2);
-  font-family: "Armata", sans-serif;
-  box-shadow: 1px 1px 4px grey;
+  background-color: #81975c;
+  box-shadow: 1px 1px 3px grey;
   cursor: pointer;
 }

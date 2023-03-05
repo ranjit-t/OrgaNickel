@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { ProductContext } from "../Context/Context";
 import "./Products.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Products() {
   const { products, setKart } = useContext(ProductContext);
-  // console.log(kart[0].length);
-  // console.log(kart[0]);
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -14,7 +14,14 @@ export default function Products() {
         {products.map((product, idx) => {
           return (
             <div className="product" key={product.id}>
-              <img src={product.src} alt="product"></img>
+              <img
+                src={product.src}
+                alt="product"
+                onClick={() => {
+                  navigate(`/product/${product.id}`);
+                }}
+              ></img>
+
               <h3>{product.title}</h3>
               <p>
                 {" "}

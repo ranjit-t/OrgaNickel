@@ -14,6 +14,9 @@ export default function Cart() {
     setKartPrice(x.reduce((a, b) => a + b, 0));
     console.log(kart.flat());
   }, [kart, setKartPrice]);
+  useEffect(() => {
+    setKart([products.filter((product) => product.numinkart >= 1)]);
+  }, [products, setKart]);
   return (
     <div>
       {/* <h2>Cart</h2> */}
@@ -90,6 +93,29 @@ export default function Cart() {
                         </button>
                       </div>
                       <p className="price-para">Price: {product.price} €</p>
+                      <p
+                        className="remove-product"
+                        onClick={() => {
+                          setProducts(
+                            products.map((prod) => {
+                              if (prod.id === product.id) {
+                                prod.numinkart = 0;
+                              }
+                              return prod;
+                            })
+                          );
+                          setKart(
+                            kart.map((prod) => {
+                              if (prod.id === product.id) {
+                                prod.numinkart = 0;
+                              }
+                              return prod;
+                            })
+                          );
+                        }}
+                      >
+                        X
+                      </p>
                     </div>
                   )
               )}

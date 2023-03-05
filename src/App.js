@@ -7,6 +7,7 @@ import Hamburger from "hamburger-react";
 import { useState, useContext, useEffect } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { ProductContext } from "./Context/Context";
+import Product from "./Pages/Product";
 
 function App() {
   const [isOpen, setOpen] = useState(false);
@@ -71,6 +72,11 @@ function App() {
           element={<Products></Products>}
         ></Route>
         <Route className="route" path="/cart" element={<Cart></Cart>}></Route>
+        <Route
+          className="route"
+          path="/product/:id"
+          element={<Product></Product>}
+        ></Route>
       </Routes>
       {/* </ProductContextProvider> */}
     </div>
