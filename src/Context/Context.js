@@ -74,7 +74,7 @@ export function ProductContextProvider({ children }) {
   }, []);
 
   const addLocalStorage = useCallback(() => {
-    kart.length !== null && localStorage.setItem("kart", JSON.stringify(kart));
+    kart.length !== 0 && localStorage.setItem("kart", JSON.stringify(kart));
     console.log("adding to local storage");
   }, [kart]);
   useEffect(() => {
