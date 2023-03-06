@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
 
 export const ProductContext = createContext(null);
 
@@ -60,12 +60,30 @@ export function ProductContextProvider({ children }) {
       title: "Camera Lens",
       price: 499,
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum laudantium, explicabo adipisci et, placeat illum voluptates illo ad ratione magnam consequatur soluta, perferendis fugiat dignissimos quibusdam ipsam maxime recusandae possimus",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum laudantium, explicabo adipisci et, placeat illum voluptates illo ad ratione magnam consequatur soluta, perferendis fugiat dignissimos quibusdam ipsam maxime recusandae possimus ",
 
       numinkart: 0,
       src: "https://images.unsplash.com/photo-1582994254571-52c62d96ebab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
     },
   ]);
+
+  function getLocalStorage() {
+    const kartItems = localStorage.getItem("kart");
+    setKart(JSON.parse(kartItems));
+    console.log("reading from local storage");
+  }
+
+  function addLocalStorage() {
+    localStorage.setItem("kart", JSON.stringify(kart.flat()));
+    console.log("adding to local storage");
+  }
+  useEffect(() => {
+    addLocalStorage();
+  }, [kart]);
+  useEffect(() => {
+    getLocalStorage();
+  }, []);
+
   return (
     <div>
       <ProductContext.Provider
