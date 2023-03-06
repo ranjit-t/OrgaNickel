@@ -8,8 +8,11 @@ import { useState, useContext, useEffect } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { ProductContext } from "./Context/Context";
 import Product from "./Pages/Product";
+import { useNavigate } from "react-router-dom";
 
 function App() {
+  const navigate = useNavigate();
+
   const [isOpen, setOpen] = useState(false);
   const { kart } = useContext(ProductContext);
   const [itemsInKart, setItemsInKart] = useState(0);
@@ -23,7 +26,15 @@ function App() {
   return (
     <div className="App">
       <div className="header">
-        <h2 className="logo">OrgaNickel</h2>
+        <h2
+          className="logo"
+          onClick={() => {
+            navigate("/");
+          }}
+          style={{ cursor: "pointer" }}
+        >
+          OrgaNickel
+        </h2>
         <Hamburger
           toggled={isOpen}
           toggle={setOpen}
