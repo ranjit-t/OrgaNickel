@@ -9,6 +9,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { ProductContext } from "./Context/Context";
 import Product from "./Pages/Product";
 import { useNavigate } from "react-router-dom";
+import { RingLoader } from "react-spinners";
 
 function App() {
   const navigate = useNavigate();
@@ -16,6 +17,8 @@ function App() {
   const [isOpen, setOpen] = useState(false);
   const { kart } = useContext(ProductContext);
   const [itemsInKart, setItemsInKart] = useState(0);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     let x = kart.flat().map((product) => {
       return parseInt(product.numinkart);
@@ -23,73 +26,92 @@ function App() {
     setItemsInKart(x.reduce((a, b) => a + b, 0));
   }, [kart]);
 
-  return (
-    <div className="App">
-      <div className="header">
-        <h2
-          className="logo"
-          onClick={() => {
-            navigate("/");
-          }}
-          style={{ cursor: "pointer" }}
-        >
-          OrgaNickel
-        </h2>
-        <Hamburger
-          toggled={isOpen}
-          toggle={setOpen}
-          onClick={() => {
-            setOpen((prev) => !prev);
-          }}
-        />
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+  }, []);
 
-        <div className={isOpen ? "nav-links open" : "nav-links"}>
-          <NavLink
-            to="/"
-            className="nav-bar"
-            onClick={() => {
-              setOpen((prev) => !prev);
-            }}
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/products"
-            className="nav-bar"
-            onClick={() => {
-              setOpen((prev) => !prev);
-            }}
-          >
-            Products
-          </NavLink>
-          <NavLink
-            to="/cart"
-            className="nav-bar"
-            onClick={() => {
-              setOpen((prev) => !prev);
-            }}
-          >
-            <AiOutlineShoppingCart size="1.4em" />
-            {itemsInKart}
-          </NavLink>
+  return (
+    <div>
+      {loading && (
+        <div className="loading">
+          <RingLoader color="#759242" size={100} />
         </div>
-      </div>
-      {/* <ProductContextProvider> */}
-      <Routes className="routes">
-        <Route className="route" path="/" element={<Home></Home>}></Route>
-        <Route
-          className="route"
-          path="/products"
-          element={<Products></Products>}
-        ></Route>
-        <Route className="route" path="/cart" element={<Cart></Cart>}></Route>
-        <Route
-          className="route"
-          path="/product/:id"
-          element={<Product></Product>}
-        ></Route>
-      </Routes>
-      {/* </ProductContextProvider> */}
+      )}
+      {!loading && (
+        <div className="App">
+          <div className="header">
+            <h2
+              className="logo"
+              onClick={() => {
+                navigate("/");
+              }}
+              style={{ cursor: "pointer" }}
+            >
+              OrgaNickel
+            </h2>
+
+            <Hamburger
+              toggled={isOpen}
+              toggle={setOpen}
+              onClick={() => {
+                setOpen((prev) => !prev);
+              }}
+            />
+
+            <div className={isOpen ? "nav-links open" : "nav-links"}>
+              <NavLink
+                to="/"
+                className="nav-bar"
+                onClick={() => {
+                  setOpen((prev) => !prev);
+                }}
+              >
+                Home
+              </NavLink>
+              <NavLink
+                to="/products"
+                className="nav-bar"
+                onClick={() => {
+                  setOpen((prev) => !prev);
+                }}
+              >
+                Products
+              </NavLink>
+              <NavLink
+                to="/cart"
+                className="nav-bar"
+                onClick={() => {
+                  setOpen((prev) => !prev);
+                }}
+              >
+                <AiOutlineShoppingCart size="1.4em" />
+                {itemsInKart}
+              </NavLink>
+            </div>
+          </div>
+
+          <Routes className="routes">
+            <Route className="route" path="/" element={<Home></Home>}></Route>
+            <Route
+              className="route"
+              path="/products"
+              element={<Products></Products>}
+            ></Route>
+            <Route
+              className="route"
+              path="/cart"
+              element={<Cart></Cart>}
+            ></Route>
+            <Route
+              className="route"
+              path="/product/:id"
+              element={<Product></Product>}
+            ></Route>
+          </Routes>
+        </div>
+      )}
     </div>
   );
 }
