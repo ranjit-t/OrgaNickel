@@ -1,4 +1,4 @@
-import { useState, createContext, useEffect } from "react";
+import { useState, createContext, useEffect, useCallback } from "react";
 
 export const ProductContext = createContext(null);
 
@@ -67,22 +67,22 @@ export function ProductContextProvider({ children }) {
     },
   ]);
 
-  function getLocalStorage() {
+  const getLocalStorage = useCallback(() => {
     const kartItems = localStorage.getItem("kart");
     setKart(JSON.parse(kartItems));
     console.log("reading from local storage");
-  }
+  }, []);
 
-  function addLocalStorage() {
-    localStorage.setItem("kart", JSON.stringify(kart.flat()));
+  const addLocalStorage = useCallback(() => {
+    kart.length !== null && localStorage.setItem("kart", JSON.stringify(kart));
     console.log("adding to local storage");
-  }
-  useEffect(() => {
-    addLocalStorage();
   }, [kart]);
   useEffect(() => {
+    addLocalStorage();
+  }, [kart, addLocalStorage]);
+  useEffect(() => {
     getLocalStorage();
-  }, []);
+  }, [getLocalStorage]);
 
   return (
     <div>
