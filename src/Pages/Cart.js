@@ -14,17 +14,19 @@ export default function Cart() {
       return parseInt(product.numinkart) * parseInt(product.price);
     });
     setKartPrice(x.reduce((a, b) => a + b, 0));
-    console.log(kart.flat());
+    console.log(kart);
   }, [kart, setKartPrice]);
   useEffect(() => {
-    setKart([products.filter((product) => product.numinkart >= 1)]);
+    let productsToKart = products.filter((product) => product.numinkart >= 1);
+    setKart(productsToKart);
   }, [products, setKart]);
+
   return (
     <div>
       {/* <h2>Cart</h2> */}
       <div>
         <h2 className="kart-heading">Cart</h2>
-        {kart.length !== 0 ? (
+        {kart.flat().length !== 0 ? (
           <div className="kart">
             <div className="kart-description">
               <h3>Product</h3>
@@ -61,7 +63,6 @@ export default function Cart() {
                           onClick={(e) => {
                             e.preventDefault();
 
-                            // console.log(product.id);
                             setProducts(
                               products.map((prod) => {
                                 if (prod.id === product.id) {
@@ -70,14 +71,14 @@ export default function Cart() {
                                 return prod;
                               })
                             );
-                            setKart(
-                              kart.map((prod) => {
-                                if (prod.id === product.id) {
-                                  prod.numinkart = prod.numinkart - 1;
-                                }
-                                return prod;
-                              })
-                            );
+                            // setKart(
+                            //   kart.map((prod) => {
+                            //     if (prod.id === product.id) {
+                            //       prod.numinkart = prod.numinkart - 1;
+                            //     }
+                            //     return prod;
+                            //   })
+                            // );
                           }}
                         >
                           -
@@ -95,14 +96,14 @@ export default function Cart() {
                                 return prod;
                               })
                             );
-                            setKart(
-                              kart.map((prod) => {
-                                if (prod.id === product.id) {
-                                  prod.numinkart = prod.numinkart + 1;
-                                }
-                                return prod;
-                              })
-                            );
+                            // setKart(
+                            //   kart.map((prod) => {
+                            //     if (prod.id === product.id) {
+                            //       prod.numinkart = prod.numinkart + 1;
+                            //     }
+                            //     return prod;
+                            //   })
+                            // );
                           }}
                         >
                           +
@@ -120,14 +121,14 @@ export default function Cart() {
                               return prod;
                             })
                           );
-                          setKart(
-                            kart.map((prod) => {
-                              if (prod.id === product.id) {
-                                prod.numinkart = 0;
-                              }
-                              return prod;
-                            })
-                          );
+                          // setKart(
+                          //   kart.map((prod) => {
+                          //     if (prod.id === product.id) {
+                          //       prod.numinkart = 0;
+                          //     }
+                          //     return prod;
+                          //   })
+                          // );
                         }}
                       >
                         X

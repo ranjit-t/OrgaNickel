@@ -10,6 +10,10 @@ import { ProductContext } from "./Context/Context";
 import Product from "./Pages/Product";
 import { useNavigate } from "react-router-dom";
 import { RingLoader } from "react-spinners";
+import Signup from "./User-Pages/Signup";
+import Login from "./User-Pages/Login";
+import { auth } from "./Config";
+import { signOut, onAuthStateChanged } from "firebase/auth";
 
 function App() {
   const navigate = useNavigate();
@@ -31,6 +35,29 @@ function App() {
       setLoading(false);
     }, 1500);
   }, []);
+
+  const logout = async () => {
+    try {
+      await signOut(auth);
+      alert("logged Out");
+    } catch (e) {
+      alert(e.message);
+    }
+  };
+  //Checking if user logged in
+  const [user, setUser] = useState("");
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser("");
+        console.log("no user");
+      }
+    });
+    console.log(user.uid);
+  }, [user]);
 
   return (
     <div>
@@ -89,6 +116,42 @@ function App() {
                 <AiOutlineShoppingCart size="1.4em" />
                 {itemsInKart}
               </NavLink>
+              {!user && (
+                <NavLink
+                  to="/signup"
+                  className="nav-bar"
+                  onClick={() => {
+                    setOpen((prev) => !prev);
+                  }}
+                >
+                  Sign Up
+                </NavLink>
+              )}
+
+              {!user && (
+                <NavLink
+                  to="/login"
+                  className="nav-bar"
+                  onClick={() => {
+                    setOpen((prev) => !prev);
+                  }}
+                >
+                  Log In
+                </NavLink>
+              )}
+
+              {user && (
+                <NavLink
+                  to="/login"
+                  className="nav-bar"
+                  onClick={() => {
+                    logout();
+                    setOpen((prev) => !prev);
+                  }}
+                >
+                  Log Out
+                </NavLink>
+              )}
             </div>
           </div>
 
@@ -108,6 +171,16 @@ function App() {
               className="route"
               path="/product/:id"
               element={<Product></Product>}
+            ></Route>
+            <Route
+              className="route"
+              path="/signup"
+              element={<Signup></Signup>}
+            ></Route>
+            <Route
+              className="route"
+              path="/login"
+              element={<Login></Login>}
             ></Route>
           </Routes>
         </div>
