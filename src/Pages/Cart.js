@@ -11,10 +11,13 @@ export default function Cart() {
   useEffect(() => {
     setKartPrice(0);
     let x = kart.flat().map((product) => {
-      return parseInt(product.numinkart) * parseInt(product.price);
+      return (
+        parseFloat(product.numinkart).toFixed(2) *
+        parseFloat(product.price).toFixed(2)
+      );
     });
-    setKartPrice(x.reduce((a, b) => a + b, 0));
-    console.log(kart);
+    let y = x.reduce((a, b) => a + b, 0);
+    setKartPrice(parseFloat(y).toFixed(2));
   }, [kart, setKartPrice]);
   useEffect(() => {
     let productsToKart = products.filter((product) => product.numinkart >= 1);

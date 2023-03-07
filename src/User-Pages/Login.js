@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import "../App.css";
+
 import { auth } from "../Config";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -19,8 +21,8 @@ export default function Login() {
   };
 
   return (
-    <div>
-      <div>
+    <div className="App">
+      <div className="signup-login">
         <h4>Already Have An Account ?</h4>
         <input
           type="email"

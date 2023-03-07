@@ -1,4 +1,6 @@
 import { auth } from "../Config";
+import "../App.css";
+
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -22,8 +24,8 @@ export default function Signup() {
     }
   };
   return (
-    <div>
-      <div>
+    <div className="App">
+      <div className="signup-login">
         <h4>Don't Have An Account ?</h4>
         <input
           type="email"

@@ -38,6 +38,7 @@ function App() {
 
   const logout = async () => {
     try {
+      localStorage.setItem("kart", JSON.stringify([]));
       await signOut(auth);
       alert("logged Out");
     } catch (e) {
@@ -185,6 +186,30 @@ function App() {
           </Routes>
         </div>
       )}
+      <div className="section-3">
+        <div>
+          <p>
+            <a href="/">Home</a>
+          </p>
+          <p>
+            <a href="/products">Products</a>
+          </p>
+          <p>
+            <a href="/cart">Cart</a>
+          </p>
+        </div>
+        <div>
+          <p>
+            <a href="/signup">Sign Up</a>
+          </p>
+          <p>
+            <a href="/products">Log In</a>
+          </p>
+          <p>
+            <a href="/contact">Contact</a>
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
