@@ -144,6 +144,17 @@ export default function Cart() {
                 <p>Price: {kartPrice} €</p>
               </div>
             </div>
+            <div>
+              <button
+                className="btn-checkout"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate(`/checkout`);
+                }}
+              >
+                <b>{`Check Out >>`}</b>
+              </button>
+            </div>
           </div>
         ) : (
           <div className="kart">Kart is Empty, Add Items!</div>

@@ -14,6 +14,7 @@ import Signup from "./User-Pages/Signup";
 import Login from "./User-Pages/Login";
 import { auth } from "./Config";
 import { signOut, onAuthStateChanged } from "firebase/auth";
+import Checkout from "./Pages/Checkout";
 
 function App() {
   const navigate = useNavigate();
@@ -61,7 +62,7 @@ function App() {
   }, [user]);
 
   return (
-    <div>
+    <div className="Top-App">
       {loading && (
         <div className="loading">
           <RingLoader color="#759242" size={100} />
@@ -170,6 +171,11 @@ function App() {
             ></Route>
             <Route
               className="route"
+              path="/checkout"
+              element={<Checkout></Checkout>}
+            ></Route>
+            <Route
+              className="route"
               path="/product/:id"
               element={<Product></Product>}
             ></Route>
@@ -187,7 +193,7 @@ function App() {
         </div>
       )}
       {!loading && (
-        <div className="section-3">
+        <div className="footer">
           <div>
             <p>
               <a href="/">Home</a>

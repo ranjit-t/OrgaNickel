@@ -1,0 +1,11 @@
+.delivery-address {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+}
+.delivery-address > form > * {
+  margin-top: 15px;
+}

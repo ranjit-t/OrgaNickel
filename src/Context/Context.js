@@ -1,12 +1,6 @@
 import { useState, createContext, useEffect } from "react";
-import {
-  addDoc,
-  doc,
-  deleteDoc,
-  collection,
-  getDocs,
-} from "firebase/firestore";
-import { auth, db } from "../Config";
+
+import { auth } from "../Config";
 import { onAuthStateChanged } from "firebase/auth";
 
 export const ProductContext = createContext(null);
@@ -110,26 +104,7 @@ export function ProductContextProvider({ children }) {
 
   useEffect(() => {
     localStorage.setItem("kart", JSON.stringify(products));
-    if (user) {
-      getDocs(collection(db, "kart"))
-        .then((snapshot) => {
-          //deleting existing products in firestore
-          snapshot.docs.forEach((element) => {
-            const currentID = element.id;
-            const ref = doc(db, "kart", currentID);
-
-            deleteDoc(ref);
-            console.log("deleted fires");
-          });
-        })
-        .then(() => {
-          //adding new products in firestore
-          JSON.parse(localStorage.getItem("kart")).forEach((prod) => {
-            addDoc(collection(db, "kart"), prod);
-            console.log("added fires");
-          });
-        });
-    }
+    // console.log(JSON.parse(localStorage.getItem("kart")));
   }, [products, user]);
 
   return (
@@ -142,6 +117,7 @@ export function ProductContextProvider({ children }) {
           setKart,
           kartPrice,
           setKartPrice,
+          user,
         }}
       >
         {children}

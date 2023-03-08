@@ -80,7 +80,7 @@ img:hover {
   border-top: 2px solid black;
 }
 .kart {
-  margin-bottom: 300px;
+  margin-bottom: 50px;
 }
 
 .kart-title-image {
@@ -198,4 +198,7 @@ button:hover {
 }
 .home-page > img:hover {
   transform: scale(1);
+}
+.btn-checkout {
+  transform: scale(1.5);
 }
