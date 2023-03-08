@@ -57,6 +57,7 @@ export default function Checkout() {
         <div className="payment-modal">
           <form className="paynow-form">
             <h3>Debit/Credit Card</h3>
+            <p>Amount : {kartPrice}</p>
 
             <input type="text" placeholder="Name on the card" required />
             <input
