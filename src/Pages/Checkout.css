@@ -8,4 +8,57 @@
 }
 .delivery-address > form > * {
   margin-top: 15px;
+  width: 250px;
+}
+
+.checkout-parent {
+  position: relative;
+}
+.payment-modal {
+  position: absolute;
+  top: -20px;
+  background-color: rgba(128, 128, 128, 0.334);
+  width: 100%;
+  height: 90vh;
+  margin-top: auto;
+}
+.paynow-form {
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20vh;
+  width: 280px;
+  padding: 30px;
+}
+.paynow-form > * {
+  font-size: 1.1em;
+  width: 245px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.expiry-CVV {
+  width: 245px;
+  display: flex;
+  font-size: 1.1em;
+}
+.expiry-CVV > * {
+  font-size: 1.1em;
+}
+.CVV {
+  width: 50px;
+  flex-grow: 1;
+}
+.paynow-form > button {
+  text-align: center;
+  width: 235px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
 }
