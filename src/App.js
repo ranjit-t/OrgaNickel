@@ -194,62 +194,50 @@ function App() {
       )}
       {!loading && (
         <div className="footer">
-          <div style={{ cursor: "pointer" }}>
-            <p>
-              <span
-                onClick={() => {
-                  navigate("/");
-                }}
-              >
-                Home
-              </span>
+          <div>
+            <p
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              Home
             </p>
-            <p>
-              <span
-                onClick={() => {
-                  navigate("/products");
-                }}
-              >
-                Products
-              </span>
+            <p
+              onClick={() => {
+                navigate("/products");
+              }}
+            >
+              Products
             </p>
-            <p>
-              <span
-                onClick={() => {
-                  navigate("/cart");
-                }}
-              >
-                Cart
-              </span>
+            <p
+              onClick={() => {
+                navigate("/cart");
+              }}
+            >
+              Cart
             </p>
           </div>
           <div style={{ cursor: "pointer" }}>
-            <p>
-              <span
-                onClick={() => {
-                  navigate("/signup");
-                }}
-              >
-                Sign Up
-              </span>
+            <p
+              onClick={() => {
+                navigate("/signup");
+              }}
+            >
+              Sign Up
             </p>
-            <p>
-              <span
-                onClick={() => {
-                  navigate("/login");
-                }}
-              >
-                Log In
-              </span>
+            <p
+              onClick={() => {
+                navigate("/login");
+              }}
+            >
+              Log In
             </p>
-            <p>
-              <span
-                onClick={() => {
-                  navigate("/");
-                }}
-              >
-                Contact
-              </span>
+            <p
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              Contact
             </p>
           </div>
         </div>

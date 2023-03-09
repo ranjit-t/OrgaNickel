@@ -113,9 +113,11 @@ Route {
   position: absolute;
   bottom: -10px;
 }
-.footer > * > * > span {
+.footer > * > * {
   color: white;
   text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 input::-webkit-outer-spin-button,
