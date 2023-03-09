@@ -14,10 +14,17 @@
   border-radius: 10px;
   width: 100%;
   height: 600px;
+  border-right: 5px solid #759242;
+  border-bottom: 5px solid #759242;
+  padding-bottom: 5px;
+  padding-right: 5px;
+  box-shadow: 1px 1px 4px grey;
 }
 
 .section-2-image:hover {
   transform: scale(1);
+  padding-bottom: 0px;
+  padding-right: 0px;
 }
 
 .section-2-description {
@@ -44,6 +51,11 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.icon {
+  position: relative;
+  top: 6px;
+}
 @media (max-width: 650px) {
   .section-2 {
     display: flex;
@@ -51,8 +63,10 @@
     width: 100%;
   }
   .section-2-image {
-    width: 100%;
+    width: 96%;
     height: 500px;
+    padding-bottom: 4px;
+    padding-right: 4px;
   }
   .section-2-description {
     margin-left: 50px;

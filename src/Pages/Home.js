@@ -28,13 +28,16 @@ export default function Home() {
           }}
         >
           {" "}
-          <b>Our Methods of Farming</b>
+          <b>Our Product Farming</b>
         </p>
-        <p>
+        <p style={{ width: "90%" }}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque labore
           id laboriosam, autem similique voluptates enim laudantium odit
           incidunt illo, ipsam, vitae culpa. Ad velit optio odit sit dignissimos
-          minima.
+          minima.Lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Dolore possimus iusto minima, omnis totam esse temporibus suscipit
+          tempore reiciendis non, quam iste fugit consequatur? At, sed velit.
+          Autem, fuga cum?
         </p>
         <Slideshow></Slideshow>
 
@@ -77,12 +80,13 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-          <img
-            className="section-2-image"
-            src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2813&q=80"
-            alt="Why OrgaNickel"
-          />
+          <div className="section-2-image-div">
+            <img
+              className="section-2-image"
+              src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2813&q=80"
+              alt="Why OrgaNickel"
+            />
+          </div>
         </div>
         <div className="contact">
           <p
@@ -98,10 +102,11 @@ export default function Home() {
             <b>Contact Us</b>
           </p>
           <div>
-            <AiOutlineMail size="1.4em" /> : hello@organickel.com
+            <AiOutlineMail size="1.4em" className="icon" />:
+            hello@organickel.com
           </div>
           <div>
-            <AiOutlinePhone size="1.4em" /> : 0767-054-7575
+            <AiOutlinePhone size="1.4em" className="icon" /> : 0767-054-7575
           </div>
         </div>
       </div>

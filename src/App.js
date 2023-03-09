@@ -115,6 +115,7 @@ function App() {
                   setOpen((prev) => !prev);
                 }}
               >
+                Cart
                 <AiOutlineShoppingCart size="1.4em" />
                 {itemsInKart}
               </NavLink>

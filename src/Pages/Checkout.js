@@ -49,6 +49,13 @@ export default function Checkout() {
         <div>
           <h2>Check Out</h2>
           <p>Please Login to Check Out</p>
+          <button
+            onClick={() => {
+              navigate("/login");
+            }}
+          >
+            {`Login >>`}
+          </button>
         </div>
       )}
       {readyToPay && (
