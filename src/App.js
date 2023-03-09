@@ -199,6 +199,7 @@ function App() {
             <p
               onClick={() => {
                 navigate("/");
+                window.scrollTo(0, 0);
               }}
             >
               Home
@@ -206,6 +207,7 @@ function App() {
             <p
               onClick={() => {
                 navigate("/products");
+                window.scrollTo(0, 0);
               }}
             >
               Products
@@ -213,6 +215,7 @@ function App() {
             <p
               onClick={() => {
                 navigate("/cart");
+                window.scrollTo(0, 0);
               }}
             >
               Cart
@@ -222,6 +225,7 @@ function App() {
             <p
               onClick={() => {
                 navigate("/signup");
+                window.scrollTo(0, 0);
               }}
             >
               Sign Up
@@ -229,6 +233,8 @@ function App() {
             <p
               onClick={() => {
                 navigate("/login");
+
+                window.scrollTo(0, 0);
               }}
             >
               Log In
@@ -236,6 +242,7 @@ function App() {
             <p
               onClick={() => {
                 navigate("/");
+                window.scrollTo(0, 2000);
               }}
             >
               Contact
