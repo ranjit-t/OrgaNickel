@@ -19,6 +19,9 @@ export default function Cart() {
     let y = x.reduce((a, b) => a + b, 0);
     setKartPrice(parseFloat(y).toFixed(2));
   }, [kart, setKartPrice]);
+
+  //Adding to Kart every single time product changes
+
   useEffect(() => {
     let productsToKart = products.filter((product) => product.numinkart >= 1);
     setKart(productsToKart);

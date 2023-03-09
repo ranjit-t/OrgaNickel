@@ -33,7 +33,17 @@
   padding: 0 20px;
   color: white;
 }
-
+.contact {
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.contact > * {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 @media (max-width: 650px) {
   .section-2 {
     display: flex;

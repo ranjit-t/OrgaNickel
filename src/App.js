@@ -194,26 +194,62 @@ function App() {
       )}
       {!loading && (
         <div className="footer">
-          <div>
+          <div style={{ cursor: "pointer" }}>
             <p>
-              <a href="/">Home</a>
+              <span
+                onClick={() => {
+                  navigate("/");
+                }}
+              >
+                Home
+              </span>
             </p>
             <p>
-              <a href="/products">Products</a>
+              <span
+                onClick={() => {
+                  navigate("/products");
+                }}
+              >
+                Products
+              </span>
             </p>
             <p>
-              <a href="/cart">Cart</a>
+              <span
+                onClick={() => {
+                  navigate("/cart");
+                }}
+              >
+                Cart
+              </span>
             </p>
           </div>
-          <div>
+          <div style={{ cursor: "pointer" }}>
             <p>
-              <a href="/signup">Sign Up</a>
+              <span
+                onClick={() => {
+                  navigate("/signup");
+                }}
+              >
+                Sign Up
+              </span>
             </p>
             <p>
-              <a href="/products">Log In</a>
+              <span
+                onClick={() => {
+                  navigate("/login");
+                }}
+              >
+                Log In
+              </span>
             </p>
             <p>
-              <a href="/contact">Contact</a>
+              <span
+                onClick={() => {
+                  navigate("/");
+                }}
+              >
+                Contact
+              </span>
             </p>
           </div>
         </div>

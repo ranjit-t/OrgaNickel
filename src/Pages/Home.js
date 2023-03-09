@@ -1,5 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Slideshow from "../Data/Slideshow";
+import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
+
 import "./Home.css";
 
 export default function Home() {
@@ -14,12 +17,27 @@ export default function Home() {
           src="https://images.unsplash.com/photo-1534533983688-c7b8e13fd3b6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
           alt="home"
         />
+
+        <p
+          style={{
+            cursor: "pointer",
+            fontSize: "2em",
+            borderTop: "2px solid black",
+            borderBottom: "2px solid black",
+            marginTop: "50px",
+          }}
+        >
+          {" "}
+          <b>Our Methods of Farming</b>
+        </p>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque labore
           id laboriosam, autem similique voluptates enim laudantium odit
           incidunt illo, ipsam, vitae culpa. Ad velit optio odit sit dignissimos
           minima.
         </p>
+        <Slideshow></Slideshow>
+
         <p
           onClick={() => {
             navigate("/products/");
@@ -65,6 +83,26 @@ export default function Home() {
             src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2813&q=80"
             alt="Why OrgaNickel"
           />
+        </div>
+        <div className="contact">
+          <p
+            style={{
+              cursor: "pointer",
+              fontSize: "2em",
+              borderTop: "2px solid black",
+              borderBottom: "2px solid black",
+              marginTop: "50px",
+            }}
+          >
+            {" "}
+            <b>Contact Us</b>
+          </p>
+          <div>
+            <AiOutlineMail size="1.4em" /> : hello@organickel.com
+          </div>
+          <div>
+            <AiOutlinePhone size="1.4em" /> : 0767-054-7575
+          </div>
         </div>
       </div>
     </div>

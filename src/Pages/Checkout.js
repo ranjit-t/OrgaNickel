@@ -15,13 +15,11 @@ export default function Checkout() {
         <div>
           {" "}
           <h2>Checkout</h2>
-          <div>
-            <p>
-              <b>Total Cart Amount</b>
-            </p>
-            <p>
-              <b>{kartPrice}€</b>
-            </p>
+          <div className="summary">
+            <h4>Order Summary</h4>
+            <p>Cart Amount : {kartPrice}€</p>
+            <p>Shipping Charges : Free</p>
+            <p>Total Amount : {kartPrice}€</p>
           </div>
           <div className="delivery-address">
             <p>Delivery Address:</p>
@@ -57,7 +55,7 @@ export default function Checkout() {
         <div className="payment-modal">
           <form className="paynow-form">
             <h3>Debit/Credit Card</h3>
-            <p>Amount : {kartPrice}</p>
+            <p>Amount : {kartPrice}€</p>
 
             <input type="text" placeholder="Name on the card" required />
             <input

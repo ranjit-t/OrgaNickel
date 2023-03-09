@@ -10,6 +10,12 @@
   margin-top: 15px;
   width: 250px;
 }
+.summary {
+  border: 1px solid black;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .checkout-parent {
   position: relative;
@@ -51,7 +57,7 @@
   font-size: 1.1em;
 }
 .CVV {
-  width: 50px;
+  width: 70px;
   flex-grow: 1;
 }
 .paynow-form > button {
@@ -61,4 +67,26 @@
   margin-bottom: 5px;
   margin-left: auto;
   margin-right: auto;
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
