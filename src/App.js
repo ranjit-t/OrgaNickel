@@ -217,7 +217,7 @@ function App() {
               Cart
             </p>
           </div>
-          <div style={{ cursor: "pointer" }}>
+          <div>
             <p
               onClick={() => {
                 navigate("/signup");
